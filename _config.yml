@@ -1,1 +1,12 @@
-baseurl : /
+# Site settings
+title: "风的记忆"
+email: cao.lei1031@163.com
+description: > # this means to ignore newlines until "baseurl:"
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://yourdomain.com" # the base hostname & protocol for your site
+github_username:  luckyCao
+
+# Build settings
+markdown: kramdown
+
+
