@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "八皇后问题!"
+title:  "八皇后问题"
 date:   2016-03-03 18:55:02 +0800
 categories: algorithm
 ---
