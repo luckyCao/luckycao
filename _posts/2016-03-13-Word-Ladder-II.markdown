@@ -14,6 +14,13 @@ Given:
 beginWord = "hit"
 endWord = "cog"
 wordList = ["hot","dot","dog","lot","log"]
+Return
+{% highlight javascript %}
+  [
+    ["hit","hot","dot","dog","cog"],
+    ["hit","hot","lot","log","cog"]
+  ]
+  {% endhighlight %}
 
 {% highlight javascript %}
 var findLadders = function(beginWord, endWord, wordList) {
