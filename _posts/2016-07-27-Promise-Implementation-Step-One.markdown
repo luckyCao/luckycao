@@ -4,6 +4,9 @@ title:  "三步实现promise-第一步"
 date:   2016-07-27 23:09:02 +0800
 categories: javascript promise
 ---
+promise的实现参照[Forbes Lindesay](https://www.promisejs.org/implementing/)
+mark一下理解过程
+
 第一步
 {% highlight javascript %}
    let promise = new Promise((resolve,reject)=>{
