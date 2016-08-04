@@ -76,6 +76,7 @@ Promise返回一个对象，这个对象有一个then方法,它的两个入参�
    export default Promise
 {% endhighlight %}
 
+[第二步](http://luckycao.info/javascript/promise/2016/07/27/Promise-Implementation-Step-Two.html)
 
 
 

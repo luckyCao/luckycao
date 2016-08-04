@@ -154,7 +154,7 @@ initVnode函数接收一个虚拟dom，首先判断vtype是几，
      return node
 {% endhighlight %}
 
-完成的代码见
+完整的代码见
 [react-test Chapter1](https://github.com/luckyCao/react-test)
 
 

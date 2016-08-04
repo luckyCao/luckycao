@@ -82,6 +82,9 @@ categories: javascript promise
    export default Promise
 {% endhighlight %}
 
+[第三步](http://luckycao.info/javascript/promise/2016/07/27/Promise-Implementation-Step-Three.html)
+
+
 
 
 

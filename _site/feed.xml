@@ -5,8 +5,8 @@
     <description></description>
     <link>http://yourdomain.com/</link>
     <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 04 Aug 2016 22:14:27 +0800</pubDate>
-    <lastBuildDate>Thu, 04 Aug 2016 22:14:27 +0800</lastBuildDate>
+    <pubDate>Thu, 04 Aug 2016 22:41:21 +0800</pubDate>
+    <lastBuildDate>Thu, 04 Aug 2016 22:41:21 +0800</lastBuildDate>
     <generator>Jekyll v3.0.3</generator>
     
       <item>
@@ -150,7 +150,7 @@ jsx语法：&lt;/p&gt;
      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;node&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;完成的代码见
+&lt;p&gt;完整的代码见
 &lt;a href=&quot;https://github.com/luckyCao/react-test&quot;&gt;react-test Chapter1&lt;/a&gt;&lt;/p&gt;
 
 </description>
@@ -240,6 +240,8 @@ jsx语法：&lt;/p&gt;
      &lt;span class=&quot;nx&quot;&gt;doResolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fulfill&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
    &lt;span class=&quot;kr&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Promise&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://luckycao.info/javascript/promise/2016/07/27/Promise-Implementation-Step-Three.html&quot;&gt;第三步&lt;/a&gt;&lt;/p&gt;
 
 </description>
         <pubDate>Wed, 27 Jul 2016 23:09:02 +0800</pubDate>
@@ -437,6 +439,8 @@ Promise返回一个对象，这个对象有一个then方法,它的两个入参�
      &lt;span class=&quot;nx&quot;&gt;doResolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fulfill&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
    &lt;span class=&quot;kr&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Promise&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://luckycao.info/javascript/promise/2016/07/27/Promise-Implementation-Step-Two.html&quot;&gt;第二步&lt;/a&gt;&lt;/p&gt;
 
 </description>
         <pubDate>Wed, 27 Jul 2016 23:09:02 +0800</pubDate>
