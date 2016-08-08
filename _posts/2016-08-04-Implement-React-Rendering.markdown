@@ -131,6 +131,7 @@ initVnode函数接收一个虚拟dom，首先判断vtype是几，
 如果是3 那么对应的type就是自定义的组件，就需要new一个对象，然后调用这个对象的render方法，这个组件的render方法返回的仍然是个虚拟dom，
 这时候就轮到递归上场了，调用自己去把这个虚拟dom转化成dom节点，并返回这个节点
 {% highlight javascript %}
+     let Comonent = vNode.type;
      let component = new Component(vNode.props);
      let virtualNode = component.render();
      return initVnode(virtualNode);
