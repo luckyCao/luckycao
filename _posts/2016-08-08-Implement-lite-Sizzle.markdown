@@ -67,22 +67,20 @@ filter.CLASS('one')返回一个能匹配一个class包含one的元素。
 seeds可以取dom中的所有标签，很自然的想法是遍历seeds，这是一层循环，内部遍历tokens，逐个匹配。代码如下：
 
 {% highlight javascript %}
- function sizzle(selector,tokens,results){
     var seeds = document.getElementsByTagName('*'),
         len = seeds.length,matcher;
-    for(var i = 0;i<len;i++){//外层循环，循环seeds，
+    for(var i = 0;i<len;i++){//遍历目标集合，
         var elem = seeds[i];
-        for(var j=tokens.length-1;j>=0;j--){//内层循环，循环tokens
-            if ( (matcher = Expr.relative[ match[j].type ]) ) {//关系
+        for(var j=tokens.length-1;j>=0;j--){//针对tokens中的四个条件逐条验证
+            if ( (matcher = Expr.relative[ match[j].type ]) ) {//祖先选择器' '
                while(elem = elem['parentNode']){
 
                }
-            } else {//非关系
+            } else {//非关系选择器
 
             }
         }
     }
- }
 {% endhighlight %}
 
 这个代码有个不可行的地方就在关系选择器这边，假定我们外层循环已经循环到<p class='two'></p>,内层循环已经进行到确定了这个元素是p标签，
@@ -94,10 +92,7 @@ seeds可以取dom中的所有标签，很自然的想法是遍历seeds，这是�
 内部循环改成了，不直接去通过tokens中四个单独的条件一个个判断，而是把这四个条件对应的选择函数组合起来,生成了一个满足四个条件的匹配器。代码如下：
 {% highlight javascript %}
 function matcherFromTokens( tokens ) {
-  var  matcher,
-    len = tokens.length,
-    i = 0,
-    matchers = [];
+  var  matcher,len = tokens.length,i = 0,matchers = [];
 
   for ( ; i < len; i++ ) {
     if ( (matcher = Expr.relative[ tokens[i].type ]) ) {
@@ -107,15 +102,12 @@ function matcherFromTokens( tokens ) {
       matchers.push( matcher );
     }
   }
-
   return elementMatcher( matchers );
 }
 
 function addCombinator( matcher, combinator ) {
   var dir = combinator.dir;
-
   return function( elem, context, xml ) {
-
     while ( (elem = elem[ dir ]) ) {
       if ( elem.nodeType === 1 ) {
         if ( matcher( elem, context, xml )) {
@@ -155,7 +147,7 @@ addCombinator(matchers[0], matcher)生成一个函数：
 function( elem, context, xml ) {
     while ( (elem = elem[ dir ]) ) {
       if ( elem.nodeType === 1 ) {
-        if ( matcher( elem, context, xml )) {   //这里的matcher就是addCombinator(matchers[0], matcher)中的matchers[0]
+        if ( matcher( elem, context, xml )) {   //这里的matcher就是addCombinatorjie'so
           return true;
         }
       }
@@ -168,7 +160,37 @@ function( elem, context, xml ) {
 
 4.matcherFromTokens遇到的第四个选择器是.two,这时候的处理和1，3相同
 
-最后通过elementMatcher( matchers )返回一个满足tokens所表示的四个条件的选择器。
+最后通过elementMatcher( matchers )返回一个满足tokens所表示的四个条件的选择器。这个选择器先判断元素是否包含类two，如果否返回false，如果是
+再判断元素是否是p标签，如果否返回false，如果是再判断这个元素是否有一个祖先元素包含类one如果是返回true。
 
+选择seeds到循环判断每个seeds是否符合matcherFromTokens生成的终极匹配器体现在compile函数中，代码如下，compile首先通过matcherFromTokens生成一个终极匹配器，
+之后返回一个函数，返回的函数通过document.getElementsByTagName('*')获取到目标集合，然后遍历这个目标集合，用matcherFromTokens生成的终极匹配器去判断这个元素是否符合
+否符合tokens所描述的四个条件，如果符合把元素放到results中。
+{% highlight javascript %}
+function compile( selector, match) {
+  var fun,
+    elementMatchers = [];
+  fun = matcherFromTokens( match);
+  elementMatchers.push( fun );
+  return function( context, xml, results, outermost ) {
+             var elem, j, matcher,
+                 i = 0,
+                 seeds = document.getElementsByTagName('*'),
+                 len = seeds.length;
+             for ( ; i !== len && (elem = seeds[i]) != null; i++ ) {
+                 j = 0;
+                 while ( (matcher = elementMatchers[j++]) ) {
+                   if ( matcher( elem, context || document, xml) ) {
+                     results.push( elem );
+                     break;
+                   }
+                 }
+             }
+         };
+};
+{% endhighlight %}
+
+完整的代码见
+[react-test Chapter3](https://github.com/luckyCao/react-test)
 
 
